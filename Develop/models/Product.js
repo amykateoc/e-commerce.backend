@@ -23,17 +23,22 @@ Product.init(
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      //how do I verify that it is a decimal??
+      validate: {
+        isDecimal: true
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      //how do I validate that it is numeric?
+      validate: {
+        isNumeric: true
+      },
+      defaultValue: 10
     },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Category,
+        model: 'category',
         key: 'id'
     }
     }
