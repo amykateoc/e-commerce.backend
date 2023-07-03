@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   try {
     const product = await Product.findOne({where: {id: req.params.id}, include: [Category] [Tag]})
-    res.json(products);
+    res.json(product);
   } catch(err) {
     console.log(err)
     res.status(500).json(err)
